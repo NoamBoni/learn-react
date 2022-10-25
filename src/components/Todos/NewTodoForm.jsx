@@ -17,7 +17,7 @@ function NewTodoForm({ addTodo }) {
 
   function updateDateHandler(event) {
     const [year, month, day] = event.target.value.split("-");
-    setDate(`${year}-${month}-${day}`);
+    setDate(`${day}/${month}/${year}`);
   }
 
   function submitFormHandler() {

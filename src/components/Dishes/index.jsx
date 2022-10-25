@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Dish from "./Dish";
 import CreateNewDish from "./CreateNewDish";
+import SortButton from "../global/SortButton";
 
 const RAW_DISHES = [
   {
@@ -27,14 +28,18 @@ export default function Dishes() {
     setDishes([...dishes, dish]);
   }
 
-  function removeDish(id){
-    setDishes(dishes.filter(dish => dish.id !== id))
+  function removeDish(id) {
+    setDishes(dishes.filter((dish) => dish.id !== id));
   }
 
   return (
     <>
       <CreateNewDish addDish={addDish} />
       <br />
+      <SortButton
+        setData={setDishes}
+        callback={(dish1, dish2) => dish1.price - dish2.price}
+      />
       <br />
       <br />
       {dishes.map((dish) => (
